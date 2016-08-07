@@ -33,6 +33,11 @@ class PokemonDetailVC: UIViewController {
         super.viewDidLoad()
 
         pokeNameLbl.text = pokemon.name
+        mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        
+        pokemon.downloadPokemonDetails {
+            //this will be called after the pokemon is loaded from the api
+        }
     }
 
     override func didReceiveMemoryWarning() {
