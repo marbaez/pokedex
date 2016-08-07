@@ -205,6 +205,9 @@
                                             <constraint firstAttribute="height" constant="26" id="rkM-08-2EQ"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="pWf-we-KDC" eventType="touchUpInside" id="WnO-Vd-CMI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -330,7 +333,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="HOL-Jx-RIA">
                                         <rect key="frame" x="0.0" y="210" width="560" height="20"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Heigh:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJ4-tk-cX6">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heigh:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJ4-tk-cX6">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="5JN-0Z-6f3"/>
@@ -339,7 +342,7 @@
                                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0,7 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tc-ts-WSX">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,7 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tc-ts-WSX">
                                                 <rect key="frame" x="100" y="0.0" width="100" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="ANp-Zt-2Ti"/>
@@ -348,7 +351,7 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pokedex Id.:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXo-Bq-NV5">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex Id.:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXo-Bq-NV5">
                                                 <rect key="frame" x="200" y="0.0" width="260" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="fsj-cP-QQn"/>
@@ -357,7 +360,7 @@
                                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9D-Al-X3T">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9D-Al-X3T">
                                                 <rect key="frame" x="460" y="0.0" width="100" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="j3N-Nu-TDj"/>
@@ -519,7 +522,18 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="baseAttackLbl" destination="Pgr-3o-Kgc" id="RbX-J6-7Qa"/>
+                        <outlet property="currentEvoImg" destination="EY6-g1-bpl" id="0A8-o8-qvt"/>
+                        <outlet property="defenceLbl" destination="s3q-wU-H2h" id="XzB-WQ-oAd"/>
+                        <outlet property="descriptionLbl" destination="pvA-xH-m3c" id="bWc-xo-ETN"/>
+                        <outlet property="evoLbl" destination="h8o-7q-1HR" id="B38-0i-EmO"/>
+                        <outlet property="heighLbl" destination="0tc-ts-WSX" id="cex-rv-PcY"/>
+                        <outlet property="mainImg" destination="hdI-of-JwI" id="tau-VC-hH8"/>
+                        <outlet property="nextEvoImg" destination="BBQ-ke-eHW" id="R1e-C9-aBQ"/>
                         <outlet property="pokeNameLbl" destination="U0f-Pa-JYZ" id="Xne-Ut-wUk"/>
+                        <outlet property="pokedexLbl" destination="Q9D-Al-X3T" id="hzW-K6-c44"/>
+                        <outlet property="typeLbl" destination="rPy-ew-DNR" id="568-Uy-eYi"/>
+                        <outlet property="weightLbl" destination="cha-mT-tix" id="MYX-I3-1Nf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjb-HO-nqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
