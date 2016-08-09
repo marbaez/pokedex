@@ -466,10 +466,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zJo-pb-UMI">
                                 <rect key="frame" x="180" y="422" width="240" height="120"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="EY6-g1-bpl">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="EY6-g1-bpl">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="BBQ-ke-eHW">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="BBQ-ke-eHW">
                                         <rect key="frame" x="120" y="0.0" width="120" height="120"/>
                                     </imageView>
                                 </subviews>
@@ -483,19 +483,65 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iv-XH-RDe">
+                                <rect key="frame" x="0.0" y="55" width="600" height="545"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pAZ-tB-ATC">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="545"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j8K-29-jEk">
+                                            <rect key="frame" x="248" y="199" width="105" height="153"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p" translatesAutoresizingMaskIntoConstraints="NO" id="T4v-rT-CdD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="132"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="sGi-yW-Rfn"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="sGi-yW-Rfn"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWo-7x-YHN" userLabel="loading">
+                                                    <rect key="frame" x="13" y="132" width="80" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="eBr-o7-4PR"/>
+                                                        <constraint firstAttribute="height" constant="21" id="zXg-1e-GqF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="shadowColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="j8K-29-jEk" firstAttribute="centerY" secondItem="pAZ-tB-ATC" secondAttribute="centerY" id="Aah-eq-UY6"/>
+                                        <constraint firstItem="j8K-29-jEk" firstAttribute="centerX" secondItem="pAZ-tB-ATC" secondAttribute="centerX" id="XyR-aD-epd"/>
+                                    </constraints>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="dark"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zJo-pb-UMI" firstAttribute="leading" secondItem="28P-zD-kOv" secondAttribute="leadingMargin" id="07B-UY-g91"/>
+                            <constraint firstItem="1iv-XH-RDe" firstAttribute="top" secondItem="YE9-H5-bR4" secondAttribute="bottom" id="3he-43-vKY"/>
                             <constraint firstItem="zJo-pb-UMI" firstAttribute="top" secondItem="hoa-oj-3hf" secondAttribute="bottom" constant="8" id="5nX-Oe-V3b"/>
                             <constraint firstItem="hoa-oj-3hf" firstAttribute="leading" secondItem="28P-zD-kOv" secondAttribute="leadingMargin" id="6X1-no-ACp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zJo-pb-UMI" secondAttribute="trailing" id="9P3-qM-urM"/>
                             <constraint firstItem="dfx-M9-qeX" firstAttribute="top" secondItem="YE9-H5-bR4" secondAttribute="bottom" constant="8" id="B3g-Wk-8Oa"/>
+                            <constraint firstItem="dPn-cW-zik" firstAttribute="top" secondItem="1iv-XH-RDe" secondAttribute="bottom" id="BCy-8r-UZu"/>
                             <constraint firstItem="zJo-pb-UMI" firstAttribute="top" secondItem="hoa-oj-3hf" secondAttribute="bottom" constant="8" id="Dz0-UE-ftr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dfx-M9-qeX" secondAttribute="trailing" id="GnT-Zp-371"/>
                             <constraint firstItem="zJo-pb-UMI" firstAttribute="centerX" secondItem="28P-zD-kOv" secondAttribute="centerX" id="KOg-bv-UeP"/>
                             <constraint firstAttribute="trailing" secondItem="YE9-H5-bR4" secondAttribute="trailing" id="PwF-aL-0Dd"/>
                             <constraint firstItem="zJo-pb-UMI" firstAttribute="centerX" secondItem="28P-zD-kOv" secondAttribute="centerX" id="RRd-w0-xtN"/>
+                            <constraint firstAttribute="trailing" secondItem="1iv-XH-RDe" secondAttribute="trailing" id="adm-jd-zts"/>
                             <constraint firstItem="hoa-oj-3hf" firstAttribute="leading" secondItem="28P-zD-kOv" secondAttribute="leadingMargin" id="eHh-LZ-skj"/>
                             <constraint firstItem="YE9-H5-bR4" firstAttribute="leading" secondItem="28P-zD-kOv" secondAttribute="leading" id="eRC-NC-8hg"/>
                             <constraint firstItem="zJo-pb-UMI" firstAttribute="top" secondItem="hoa-oj-3hf" secondAttribute="bottom" constant="8" id="gBU-Cg-uBe"/>
@@ -506,6 +552,7 @@
                             <constraint firstItem="hoa-oj-3hf" firstAttribute="leading" secondItem="28P-zD-kOv" secondAttribute="leadingMargin" id="mXT-FA-5j2"/>
                             <constraint firstItem="hoa-oj-3hf" firstAttribute="top" secondItem="dfx-M9-qeX" secondAttribute="bottom" constant="20" id="sga-7C-rcG"/>
                             <constraint firstItem="hoa-oj-3hf" firstAttribute="trailing" secondItem="28P-zD-kOv" secondAttribute="trailingMargin" id="sj1-yu-4vZ"/>
+                            <constraint firstItem="1iv-XH-RDe" firstAttribute="leading" secondItem="28P-zD-kOv" secondAttribute="leading" id="zZ2-LE-eCV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -523,11 +570,14 @@
                     </view>
                     <connections>
                         <outlet property="baseAttackLbl" destination="Pgr-3o-Kgc" id="RbX-J6-7Qa"/>
+                        <outlet property="blurView" destination="1iv-XH-RDe" id="3ol-Db-aC6"/>
                         <outlet property="currentEvoImg" destination="EY6-g1-bpl" id="0A8-o8-qvt"/>
                         <outlet property="defenceLbl" destination="s3q-wU-H2h" id="XzB-WQ-oAd"/>
                         <outlet property="descriptionLbl" destination="pvA-xH-m3c" id="bWc-xo-ETN"/>
                         <outlet property="evoLbl" destination="h8o-7q-1HR" id="B38-0i-EmO"/>
                         <outlet property="heighLbl" destination="0tc-ts-WSX" id="cex-rv-PcY"/>
+                        <outlet property="loadingImg" destination="T4v-rT-CdD" id="me1-Fd-7Wy"/>
+                        <outlet property="loadingLbl" destination="DWo-7x-YHN" id="6dm-Kr-xV2"/>
                         <outlet property="mainImg" destination="hdI-of-JwI" id="tau-VC-hH8"/>
                         <outlet property="nextEvoImg" destination="BBQ-ke-eHW" id="R1e-C9-aBQ"/>
                         <outlet property="pokeNameLbl" destination="U0f-Pa-JYZ" id="Xne-Ut-wUk"/>
@@ -549,5 +599,6 @@
         <image name="back" width="100" height="67"/>
         <image name="bg" width="1920" height="1200"/>
         <image name="music" width="100" height="100"/>
+        <image name="p" width="105" height="132"/>
     </resources>
 </document>

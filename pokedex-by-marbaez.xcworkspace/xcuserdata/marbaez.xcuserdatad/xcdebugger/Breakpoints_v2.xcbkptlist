@@ -9,12 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "pokedex-by-marbaez/Pokemon.swift"
-            timestampString = "492430699.705757"
+            filePath = "pokedex-by-marbaez/PokemonDetailVC.swift"
+            timestampString = "492445963.378922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -23,12 +25,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "pokedex-by-marbaez/Pokemon.swift"
-            timestampString = "492430699.705757"
+            filePath = "pokedex-by-marbaez/PokemonDetailVC.swift"
+            timestampString = "492446435.837941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177">
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "configureLoadBlurView()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
