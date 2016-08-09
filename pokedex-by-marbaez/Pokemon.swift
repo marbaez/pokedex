@@ -19,6 +19,8 @@ class Pokemon {
     private var _weight: String!
     private var _attack: String!
     private var _nextEvolutionTxt: String!
+    private var _nextEvolutionId: String!
+    private var _nextEvolutionLvl: String!
     
     private var _pokemonUrl: String!
     
@@ -28,6 +30,93 @@ class Pokemon {
     
     var pokedexId: Int {
         return _pokedexId
+    }
+    
+    var description: String {
+        get {
+            if _description == nil {
+                _description = ""
+            }
+            return _description
+        }
+
+    }
+    
+    var type: String {
+        get {
+            if _type == nil {
+                _type = ""
+            }
+            return _type
+        }
+
+    }
+    
+    var height: String {
+        get {
+            if _height == nil {
+                _height = ""
+            }
+            return _height
+        }
+
+    }
+    
+    var weight: String {
+        get {
+            if _weight == nil {
+                _weight = ""
+            }
+            return _weight
+        }
+
+    }
+    
+    var attack: String {
+        get {
+            if _attack == nil {
+                _attack = ""
+            }
+            return _attack
+        }
+
+    }
+    
+    var defense: String {
+        get {
+            if _defense == nil {
+                _defense = ""
+            }
+            return _defense
+        }
+    }
+    var nextEvolutionLvl: String {
+        get {
+            if _nextEvolutionLvl == nil {
+                _nextEvolutionLvl = ""
+            }
+            return _nextEvolutionLvl
+        }
+
+    }
+    
+    var nextEvolutionId: String {
+        get {
+            if _nextEvolutionId == nil {
+                _nextEvolutionId = ""
+            }
+            return _nextEvolutionId
+        }
+
+    }
+    
+    var nextEvolutionTxt: String {
+        get {
+            if _nextEvolutionTxt == nil {
+                _nextEvolutionTxt = ""
+            }
+            return _nextEvolutionTxt
+        }
     }
     
     init(name: String, id: Int) {
@@ -71,7 +160,49 @@ class Pokemon {
                         }
                     }
                     
-                    print(self._type)
+                    //print(self._type)
+                }
+                
+                //descriptions
+                self._description = ""
+                if let descArr = dict["descriptions"] as? [Dictionary<String, String>] where descArr.count>0 {
+                    if let descUrl = descArr[0]["resource_uri"] {
+                        let nsurl = NSURL(string: "\(URL_BASE)\(descUrl)")!
+                        Alamofire.request(.GET, nsurl).responseJSON { response in
+                            let resultDesc = response.result
+                            
+                            if let descDict = resultDesc.value as? Dictionary<String,AnyObject> {
+                                if let description = descDict["description"] as? String {
+                                    self._description = description
+                                    //print(self._description)
+                                }
+                            }
+                            
+                            //calling for the callback function
+                            completed()
+                        }
+                    }
+                }
+                
+                //evolutions
+                if let evolutions = dict["evolutions"] as? [Dictionary<String,AnyObject>] where evolutions.count > 0 {
+                    if let to = evolutions[0]["to"] as? String {
+                        //Mega evoutions are not treated
+                        if to.rangeOfString("mega") == nil {
+                            if let uri  = evolutions[0]["resource_uri"] {
+                                let newString = uri.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "")
+                                
+                                let evoId = newString.stringByReplacingOccurrencesOfString("/", withString: "")
+                                
+                                self._nextEvolutionId = evoId
+                                self._nextEvolutionTxt = to
+                                
+                                if let level = evolutions[0]["level"] as? Int {
+                                    self._nextEvolutionLvl = "\(level)"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
