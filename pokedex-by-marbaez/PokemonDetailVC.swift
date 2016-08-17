@@ -24,9 +24,8 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var currentEvoImg: UIImageView!
     @IBOutlet weak var nextEvoImg: UIImageView!
     @IBOutlet weak var evoLbl: UILabel!
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    @IBOutlet weak var loadingLbl: UILabel!
-    @IBOutlet weak var loadingImg: UIImageView!
+    @IBOutlet weak var blurView: BlurredLoadingView!
+    
     
     
     override func viewDidLoad() {
@@ -35,7 +34,6 @@ class PokemonDetailVC: UIViewController {
         pokeNameLbl.text = pokemon.name
         mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
         
-        configureLoadBlurView()
         blurView.hidden = false
         pokemon.downloadPokemonDetails {
             print("did we get here")
@@ -45,24 +43,9 @@ class PokemonDetailVC: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if blurView.hidden == false {
-            loadingImg.alpha = 0
-            UIView.animateWithDuration(2.0, delay: 0, options: [.Repeat, .Autoreverse], animations: {
-                self.loadingImg.alpha = CGFloat(1)
-            }, completion:nil)
+            blurView.startLoadingAnimation()
         }
         super.viewDidAppear(animated)
-    }
-    
-    private func configureLoadBlurView() {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        blurView.effect = blurEffect
-        blurView.alpha = 1
-        blurView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight] // for supporting device rotation
-        
-        UIView.animateWithDuration(2.0) {
-            self.loadingImg.alpha = 0
-        }
-        
     }
     
     private func updateUI() {
@@ -107,6 +90,22 @@ class PokemonDetailVC: UIViewController {
     */
     @IBAction func backButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    private func showBio() {
+        
+    }
+    
+    private func showMoves() {
+        
+    }
+    
+    private func hideBio() {
+        
+    }
+    
+    private func hideMoves() {
+        
     }
 
 }

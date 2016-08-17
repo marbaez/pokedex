@@ -22,9 +22,18 @@ class Pokemon {
     private var _nextEvolutionTxt: String!
     private var _nextEvolutionId: String!
     private var _nextEvolutionLvl: String!
+    private var _moves : [Move]!
     
     private var _pokemonUrl: String!
     
+    var moves: [Move] {
+        get {
+            if _moves == nil {
+                _moves = []
+            }
+            return _moves
+        }
+    }
     var name: String {
         return _name
     }
@@ -124,6 +133,13 @@ class Pokemon {
         _name = name
         _pokedexId = id
         _pokemonUrl = "\(URL_BASE)\(URL_POKEMON)\(self._pokedexId)/"
+        _moves = []
+    }
+    
+    func loadMovesDetails(completed: () -> ()) {
+        for move in _moves {
+            
+        }
     }
     
     func downloadPokemonDetails(completed: () -> ()) {
@@ -206,6 +222,16 @@ class Pokemon {
                                         self._nextEvolutionLvl = "\(level)"
                                     }
                                 }
+                            }
+                        }
+                    }
+                    
+                    //moves
+                    if let moves = dict["moves"] as? [Dictionary<String, String>] where moves.count > 0 {
+                        for move in moves {
+                            if let moveName = move["name"], let moveUri = move["resource_uri"] {
+                                let pkmMove = Move(name: moveName, uri: moveUri)
+                                self._moves.append(pkmMove)
                             }
                         }
                     }
